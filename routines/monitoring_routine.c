@@ -1,13 +1,26 @@
-﻿#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   monitoring_routine.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 21:23:51 by asari             #+#    #+#             */
+/*   Updated: 2026/04/02 21:30:02 by asari            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
 #include <unistd.h>
 #include "../philo.h"
 
-void    *monitor_routine(void *arg)
+void	*monitor_routine(void *arg)
 {
-	t_data *data = (t_data *)arg;
-	int i;
-	int finished_eating;
+	t_data *data;
+	int		i;
+	int		finished_eating;
 
+	data = (t_data *)arg;
 	while (1)
 	{
 		i = 0;

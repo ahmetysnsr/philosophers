@@ -1,4 +1,16 @@
-﻿#ifndef PHILO_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 21:24:41 by asari             #+#    #+#             */
+/*   Updated: 2026/04/02 21:32:01 by asari            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PHILO_H
 # define PHILO_H
 
 # include <pthread.h>
@@ -13,8 +25,8 @@ typedef struct s_philo
 {
 	int				philo_id;
 	int				eat_count;
-	long long       last_meal_time;
-	pthread_mutex_t meal_lock;
+	long long		last_meal_time;
+	pthread_mutex_t	meal_lock;
 	t_fork			*r_fork;
 	t_fork			*l_fork;
 	pthread_t		thread;

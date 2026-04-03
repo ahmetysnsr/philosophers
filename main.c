@@ -1,13 +1,26 @@
-﻿#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 21:24:31 by asari             #+#    #+#             */
+/*   Updated: 2026/04/03 01:59:50 by asari            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
 #include "philo.h"
 
 int	main(int argc, char **argv)
 {
-	t_data	*data;
+	t_data		*data;
+	pthread_t	monitor_thread;
 
 	if (argc < 5 || argc > 6)
 	{
-		printf("Hata: Yanlış argüman sayısı.\n");
+		printf("Error:Arguments are not valid.\n");
 		return (1);
 	}
 	data = init_data(argc, argv);
@@ -18,7 +31,6 @@ int	main(int argc, char **argv)
 		clear_table(data);
 		return (1);
 	}
-	pthread_t monitor_thread;
 	pthread_create(&monitor_thread, NULL, monitor_routine, data);
 	start_philos(data);
 	pthread_join(monitor_thread, NULL);

@@ -1,4 +1,17 @@
-﻿#include <sys/time.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_timestamp_ms.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 21:24:17 by asari             #+#    #+#             */
+/*   Updated: 2026/04/03 01:56:02 by asari            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <sys/time.h>
+#include <unistd.h>
 
 long long	get_timestamp_ms(void)
 {
@@ -6,5 +19,5 @@ long long	get_timestamp_ms(void)
 
 	if (gettimeofday(&tv, NULL) == -1)
 		return (0);
-	return (long long)tv.tv_sec * 1000 + (tv.tv_usec / 1000);
+	return ((long long)tv.tv_sec * 1000 + (tv.tv_usec / 1000));
 }

@@ -1,4 +1,16 @@
-﻿#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_forks.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 18:09:41 by asari             #+#    #+#             */
+/*   Updated: 2026/04/02 21:19:37 by asari            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
 #include "../philo.h"
 
 void	*init_forks(t_data *data)
@@ -7,14 +19,14 @@ void	*init_forks(t_data *data)
 
 	data->forks = malloc(data->number_of_philosophers * sizeof(t_fork));
 	if (data->forks == NULL)
-		return NULL;
+		return (NULL);
 	id_counter = 0;
 	while (id_counter < data->number_of_philosophers)
 	{
 		data->forks[id_counter].fork_id = id_counter;
 		if (pthread_mutex_init(&data->forks[id_counter].fork_mutex, NULL))
-			return NULL;
+			return (NULL);
 		id_counter++;
 	}
-	return data;
+	return (data);
 }

@@ -1,4 +1,16 @@
-﻿#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   start_philos.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 18:09:35 by asari             #+#    #+#             */
+/*   Updated: 2026/04/02 21:22:00 by asari            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
 #include "../philo.h"
 
 void	start_philos(t_data *data)
@@ -14,7 +26,7 @@ void	start_philos(t_data *data)
 			pthread_mutex_lock(&data->write_lock);
 			data->stop_flag = 1;
 			pthread_mutex_unlock(&data->write_lock);
-			printf("Error: Failed to create thread for philosopher %d\n", i + 1);
+			printf("Philos cannot be started %d\n", i + 1);
 			break ;
 		}
 		i++;

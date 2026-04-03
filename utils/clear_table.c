@@ -1,9 +1,21 @@
-﻿#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   clear_table.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 21:24:09 by asari             #+#    #+#             */
+/*   Updated: 2026/04/02 21:25:17 by asari            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
 #include "../philo.h"
 
-void clear_table(t_data *data)
+void	clear_table(t_data *data)
 {
-	int i;
+	int	i;
 
 	if (!data)
 		return ;

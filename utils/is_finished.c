@@ -1,8 +1,20 @@
-﻿#include "../philo.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   is_finished.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 21:24:20 by asari             #+#    #+#             */
+/*   Updated: 2026/04/02 21:25:43 by asari            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int is_finished(t_data *data)
+#include "../philo.h"
+
+int	is_finished(t_data *data)
 {
-	int stop;
+	int	stop;
 
 	pthread_mutex_lock(&data->write_lock);
 	stop = data->stop_flag;

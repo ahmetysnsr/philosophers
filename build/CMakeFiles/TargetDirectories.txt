@@ -1,3 +1,0 @@
-/mnt/c/Users/Dude/CLionProjects/philo/build/CMakeFiles/Philo.dir
-/mnt/c/Users/Dude/CLionProjects/philo/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Dude/CLionProjects/philo/build/CMakeFiles/rebuild_cache.dir

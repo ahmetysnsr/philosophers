@@ -1,6 +1,6 @@
-﻿NAME    = philo
-CC      = gcc
-CFLAGS  = -pthread
+NAME    = philo
+CC      = cc
+CFLAGS  = -Wall -Wextra -Werror
 
 SRCS    = main.c \
           init_functions/init_data.c \

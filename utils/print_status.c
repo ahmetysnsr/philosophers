@@ -1,12 +1,23 @@
-﻿#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_status.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 21:24:24 by asari             #+#    #+#             */
+/*   Updated: 2026/04/02 21:26:22 by asari            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
 #include "../philo.h"
 
-void print_status(t_philo *philo, char *status)
+void	print_status(t_philo *philo, char *status)
 {
-	long long timestamp;
+	long long	timestamp;
 
 	pthread_mutex_lock(&philo->data->write_lock);
-
 	if (!philo->data->stop_flag)
 	{
 		timestamp = get_timestamp_ms() - philo->data->start_time;
