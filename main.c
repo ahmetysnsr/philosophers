@@ -6,7 +6,7 @@
 /*   By: asari <asari>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:24:31 by asari             #+#    #+#             */
-/*   Updated: 2026/04/03 01:59:50 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/04 01:54:39 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_data		*data;
 	pthread_t	monitor_thread;
 
-	if (argc < 5 || argc > 6)
+	if (!check_arguments_validation(argc, argv))
 	{
 		printf("Error:Arguments are not valid.\n");
 		return (1);

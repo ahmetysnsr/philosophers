@@ -6,7 +6,7 @@
 /*   By: asari <asari>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:24:41 by asari             #+#    #+#             */
-/*   Updated: 2026/04/02 21:32:01 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/04 03:23:12 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_data
 	long long		start_time;
 	int				stop_flag;
 	pthread_mutex_t	write_lock;
+	pthread_mutex_t	stop_lock;
 	t_philo			*philosophers;
 	t_fork			*forks;
 }	t_data;
@@ -65,5 +66,6 @@ void		take_nap(t_philo *philo);
 void		think(t_philo *philo);
 void		clear_table(t_data *data);
 int			ft_atoi(const char *str);
+int			check_arguments_validation(int argc, char **argv);
 
 #endif //PHILO_H

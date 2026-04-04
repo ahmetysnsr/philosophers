@@ -6,7 +6,7 @@
 /*   By: asari <asari>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:23:39 by asari             #+#    #+#             */
-/*   Updated: 2026/04/02 21:23:40 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/04 02:26:09 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	*philo_routine(void *arg)
 	while (!is_finished(data))
 	{
 		take_forks(philo);
+		if (data->number_of_philosophers == 1 || is_finished(data))
+			break ;
 		eat_kebab(philo);
 		drop_forks(philo);
 		take_nap(philo);

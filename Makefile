@@ -1,6 +1,6 @@
 NAME    = philo
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror
+CFLAGS  = -Wall -Wextra -Werror -pthread
 
 SRCS    = main.c \
           init_functions/init_data.c \
@@ -19,7 +19,8 @@ SRCS    = main.c \
           utils/get_timestamp_ms.c \
           utils/is_finished.c \
           utils/print_status.c \
-          utils/sleep_ms.c
+          utils/sleep_ms.c \
+		  utils/check_arguments_validation.c
 
 OBJS    = $(SRCS:.c=.o)
 

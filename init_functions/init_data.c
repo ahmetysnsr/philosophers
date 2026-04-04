@@ -6,12 +6,19 @@
 /*   By: asari <asari>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 18:09:44 by asari             #+#    #+#             */
-/*   Updated: 2026/04/02 18:09:44 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/04 03:23:25 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../philo.h"
+
+static void	*free_and_return(t_data *data)
+{
+	pthread_mutex_destroy(&data->stop_lock);
+	free(data);
+	return (NULL);
+}
 
 t_data	*init_data(int argc, char **argv)
 {
@@ -35,5 +42,7 @@ t_data	*init_data(int argc, char **argv)
 		free(data);
 		return (NULL);
 	}
+	if (pthread_mutex_init(&data->stop_lock, NULL))
+		return (free_and_return(data));
 	return (data);
 }

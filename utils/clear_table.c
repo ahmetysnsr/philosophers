@@ -6,7 +6,7 @@
 /*   By: asari <asari>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:24:09 by asari             #+#    #+#             */
-/*   Updated: 2026/04/02 21:25:17 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/04 03:10:25 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	clear_table(t_data *data)
 		free(data->philosophers);
 	}
 	pthread_mutex_destroy(&data->write_lock);
+	pthread_mutex_destroy(&data->stop_lock);
 	free(data);
 }

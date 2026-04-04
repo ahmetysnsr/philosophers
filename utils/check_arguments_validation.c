@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_finished.c                                      :+:      :+:    :+:   */
+/*   check_arguments_validation.C                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asari <asari>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 21:24:20 by asari             #+#    #+#             */
-/*   Updated: 2026/04/04 03:13:44 by asari            ###   ########.fr       */
+/*   Created: 2026/04/04 01:53:35 by asari             #+#    #+#             */
+/*   Updated: 2026/04/04 02:43:54 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	is_finished(t_data *data)
+int	check_arguments_validation(int argc, char **argv)
 {
-	int	stop;
+	int	i;
 
-	pthread_mutex_lock(&data->stop_lock);
-	stop = data->stop_flag;
-	pthread_mutex_unlock(&data->stop_lock);
-	return (stop);
+	if (argc < 5 || argc > 6)
+		return (0);
+	i = 1;
+	while (i < argc)
+	{
+		if (ft_atoi(argv[i]) <= 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }
