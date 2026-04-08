@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitoring_routine.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*   By: asari <asari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:23:51 by asari             #+#    #+#             */
-/*   Updated: 2026/04/04 03:22:41 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/09 02:03:39 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 static int	kill_philo(t_data *data, int i)
 {
+	pthread_mutex_unlock(&data->philosophers[i].meal_lock);
 	pthread_mutex_lock(&data->stop_lock);
 	data->stop_flag = 1;
 	pthread_mutex_unlock(&data->stop_lock);
@@ -23,7 +24,6 @@ static int	kill_philo(t_data *data, int i)
 	printf("%lld %d died\n", get_timestamp_ms() - data->start_time,
 		data->philosophers[i].philo_id);
 	pthread_mutex_unlock(&data->write_lock);
-	pthread_mutex_unlock(&data->philosophers[i].meal_lock);
 	return (0);
 }
 
@@ -68,6 +68,6 @@ void	*monitor_routine(void *arg)
 			pthread_mutex_unlock(&data->stop_lock);
 			return (NULL);
 		}
-		usleep(1000);
+		usleep(250);
 	}
 }
