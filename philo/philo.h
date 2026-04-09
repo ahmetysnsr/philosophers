@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*   By: asari <asari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:24:41 by asari             #+#    #+#             */
-/*   Updated: 2026/04/04 03:23:12 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/09 06:11:27 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,4 @@ void		clear_table(t_data *data);
 int			ft_atoi(const char *str);
 int			check_arguments_validation(int argc, char **argv);
 
-#endif //PHILO_H
+#endif
