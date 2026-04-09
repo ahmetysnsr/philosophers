@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*   By: asari <asari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 18:09:44 by asari             #+#    #+#             */
-/*   Updated: 2026/04/04 03:23:25 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/09 06:21:43 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	*free_and_return(t_data *data)
 {
-	pthread_mutex_destroy(&data->stop_lock);
+	pthread_mutex_destroy(&data->write_lock);
 	free(data);
 	return (NULL);
 }
