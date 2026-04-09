@@ -18,7 +18,10 @@ To compile the project, navigate to the root directory and run:
 
 make
 
-This will generate the `philo` executable using the flags `-Wall -Wextra -Werror -pthread`.
+This will generate the `philo` executable using the flags `-Wall -Wextra -Werror`.
+
+### AI Usage
+AI tools were used to assist with debugging and understanding threading concepts.
 
 ### Execution
 Run the program with the following arguments:
