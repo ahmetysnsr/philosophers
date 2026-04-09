@@ -6,7 +6,7 @@
 /*   By: asari <asari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:23:51 by asari             #+#    #+#             */
-/*   Updated: 2026/04/09 02:03:39 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/09 02:12:26 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ void	*monitor_routine(void *arg)
 			pthread_mutex_unlock(&data->stop_lock);
 			return (NULL);
 		}
-		usleep(250);
+		usleep(100);
 	}
 }
