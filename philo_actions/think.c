@@ -22,7 +22,6 @@ void	think(t_philo *philo)
 		time = (philo->data->time_to_eat * 2) - philo->data->time_to_sleep;
 		if (time < 0)
 			time = 0;
-		time *= 0.5;
 		sleep_ms(time, philo->data);
 	}
 }
