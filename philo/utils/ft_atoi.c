@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*   By: asari <asari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:24:12 by asari             #+#    #+#             */
-/*   Updated: 2026/04/02 21:24:15 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/15 13:02:16 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int		i;
-	int		sign;
-	int		value;
+	int			i;
+	int			sign;
+	long		value;
 
 	i = 0;
 	sign = 1;

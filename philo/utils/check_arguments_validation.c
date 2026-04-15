@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arguments_validation.C                       :+:      :+:    :+:   */
+/*   check_arguments_validation.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*   By: asari <asari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 01:53:35 by asari             #+#    #+#             */
-/*   Updated: 2026/04/04 02:43:54 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/15 13:03:27 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_arguments_validation(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (ft_atoi(argv[i]) <= 0)
+		if (ft_atoi(argv[i]) <= 0 || ft_atoi(argv[i]) > 2147483647)
 			return (0);
 		i++;
 	}
