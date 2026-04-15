@@ -6,7 +6,7 @@
 /*   By: asari <asari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:24:41 by asari             #+#    #+#             */
-/*   Updated: 2026/04/09 06:11:27 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/15 14:27:10 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			print_safe(t_data *data, char *str);
 void		print_status(t_philo *philo, char *status);
 void		take_forks(t_philo *philo);
 void		drop_forks(t_philo *philo);
-void		eat_kebab(t_philo *philo);
+void		eat(t_philo *philo);
 void		take_nap(t_philo *philo);
 void		think(t_philo *philo);
 void		clear_table(t_data *data);

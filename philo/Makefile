@@ -1,6 +1,6 @@
 NAME    = philo
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror -g -pthread
+CFLAGS  = -Wall -Wextra -Werror -pthread
 
 SRCS    = main.c \
           init_functions/init_data.c \
@@ -8,7 +8,7 @@ SRCS    = main.c \
           init_functions/init_philos.c \
           init_functions/start_philos.c \
           philo_actions/drop_forks.c \
-          philo_actions/eat_kebab.c \
+          philo_actions/eat.c \
           philo_actions/take_forks.c \
           philo_actions/take_nap.c \
           philo_actions/think.c \

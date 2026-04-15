@@ -6,7 +6,7 @@
 /*   By: asari <asari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:23:39 by asari             #+#    #+#             */
-/*   Updated: 2026/04/15 13:09:42 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/15 14:27:10 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*philo_routine(void *arg)
 			drop_forks(philo);
 			break ;
 		}
-		eat_kebab(philo);
+		eat(philo);
 		drop_forks(philo);
 		take_nap(philo);
 		think(philo);

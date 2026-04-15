@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   eat_kebab.c                                        :+:      :+:    :+:   */
+/*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asari <asari>                              +#+  +:+       +#+        */
+/*   By: asari <asari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 18:09:21 by asari             #+#    #+#             */
-/*   Updated: 2026/04/02 18:09:21 by asari            ###   ########.fr       */
+/*   Updated: 2026/04/15 14:27:10 by asari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	eat_kebab(t_philo *philo)
+void	eat(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->meal_lock);
 	print_status(philo, "is eating");
