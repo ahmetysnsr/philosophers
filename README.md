@@ -1,42 +1,99 @@
-*This project has been created as part of the 42 curriculum by asari.*
+# Philosophers
 
-## Description
-**Philosophers** is a solution to the classic "Dining Philosophers" problem. This project involves learning the basics of threading a process, managing shared resources (forks), and using **mutexes** to prevent data races.
+`philosophers` is a 42 curriculum project that simulates the Dining Philosophers problem in C with POSIX threads and mutexes. The goal is to manage concurrency safely while keeping the simulation accurate enough to detect starvation, death, and completion conditions.
 
-The simulation consists of a cycle where philosophers take turns eating, sleeping, and thinking to stay alive. If a philosopher cannot eat within a certain time frame, they die of starvation, and the simulation ends.
+## Overview
 
-## Technical Features
-- **Multi-threading:** Each philosopher runs on a separate thread created using `pthread_create`.
-- **Mutex Management:** Forks and shared data, such as the death flag and meal times, are protected by mutexes to ensure thread safety.
-- **Deadlock Prevention:** An asymmetric fork-taking strategy (even/odd rule) is implemented to prevent circular wait conditions and potential deadlocks.
-- **Performance Optimization:** A dedicated `stop_lock` is used for the `stop_flag` to decouple status checks from slow I/O operations like printing, preventing timing issues and unnecessary simulation delays.
+Each philosopher runs in its own thread. Forks are shared mutex-protected resources, and a dedicated monitor thread watches the table to decide when the simulation must stop.
 
-## Instructions
+The implementation focuses on:
 
-### Compilation
-To compile the project, navigate to the root directory and run:
+- thread-safe shared state
+- deadlock avoidance through fork ordering
+- accurate timing in milliseconds
+- safe shutdown and resource cleanup
+- minimal lock contention around logging and stop conditions
 
+## Project structure
+
+```text
+philo/
+├── main.c
+├── philo.h
+├── init_functions/
+├── philo_actions/
+├── routines/
+└── utils/
+```
+
+The code is organized by responsibility:
+
+- `init_functions/` initializes the table, forks, philosophers, and thread start-up
+- `philo_actions/` contains the eat, sleep, think, and fork-handling actions
+- `routines/` contains the philosopher routine and the monitor routine
+- `utils/` contains timing, parsing, printing, validation, and cleanup helpers
+
+## How it works
+
+The program receives the simulation parameters, validates them, builds the shared table, starts the philosopher threads, and launches a monitor thread.
+
+The monitor checks whether:
+
+- any philosopher has exceeded `time_to_die`
+- every philosopher has reached the optional meal target
+
+When one of those conditions is met, the simulation stops and all allocated resources are released.
+
+## Synchronization model
+
+This implementation uses mutexes to keep the simulation safe:
+
+- one mutex per fork
+- a write mutex for status output
+- a stop mutex for the shared stop flag
+- a per-philosopher mutex for meal-time access
+
+An asymmetric fork-taking strategy is used so philosophers do not all try to lock forks in the same order. That reduces the chance of circular waiting and deadlock.
+
+## Build
+
+```bash
 make
+```
 
-This will generate the `philo` executable using the flags `-Wall -Wextra -Werror`.
+Common targets:
 
-### AI Usage
-AI tools were used to assist with debugging and understanding threading concepts.
+```bash
+make clean
+make fclean
+make re
+```
 
-### Execution
-Run the program with the following arguments:
+## Run
 
+```bash
 ./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> [number_of_times_each_philosopher_must_eat]
+```
 
-**Example:**
+Example:
+
+```bash
 ./philo 5 800 200 200
+```
 
-* **number_of_philosophers**: The total number of philosophers and forks.
-* **time_to_die**: Time in milliseconds before a philosopher dies of hunger.
-* **time_to_eat**: Time it takes for a philosopher to eat.
-* **time_to_sleep**: Time a philosopher spends sleeping.
-* **[must_eat]**: (Optional) The simulation stops if all philosophers eat this many times.
+Arguments:
 
-## Resources
-* **The Linux Programming Interface**: Reference for system calls and thread management.
-* **POSIX Threads Documentation**: Official documentation for `pthread` library functions.
+| Argument | Meaning |
+|---|---|
+| `number_of_philosophers` | Number of philosophers and forks |
+| `time_to_die` | Maximum time in milliseconds before a philosopher dies without eating |
+| `time_to_eat` | Time spent eating |
+| `time_to_sleep` | Time spent sleeping |
+| `number_of_times_each_philosopher_must_eat` | Optional stop condition when all philosophers reach the target |
+
+## Notes
+
+- The program prints each state transition safely through a shared output lock.
+- Timing is measured in milliseconds.
+- Cleanup frees mutexes, forks, philosophers, and shared allocations before exit.
+- Invalid arguments are rejected before the simulation starts.
